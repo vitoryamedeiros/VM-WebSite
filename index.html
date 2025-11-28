@@ -169,7 +169,6 @@
             overflow: hidden;
             border-bottom: var(--border-thick);
             padding-top: 60px;
-            /* Space for nav */
             z-index: 1;
         }
 
@@ -315,6 +314,30 @@
             color: var(--magenta);
         }
 
+        /* Intro Section - Hi! Eu sou a Vitórya */
+        .intro-section {
+            background: var(--charcoal);
+            color: var(--white);
+        }
+
+        .intro-section .section-title {
+            color: var(--white);
+            text-align: left;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 3rem;
+        }
+
+        .intro-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            max-width: 1000px;
+        }
+
+        .intro-text strong {
+            color: var(--magenta);
+            font-weight: 700;
+        }
+
         /* Collage Grid */
         .collage-grid {
             display: grid;
@@ -376,6 +399,168 @@
             margin-bottom: 0.5rem;
             color: var(--charcoal);
             font-weight: 500;
+        }
+
+        /* Beyond Tech Section - Porque eu sou muito mais */
+        .beyond-section {
+            background: var(--charcoal);
+            color: var(--white);
+        }
+
+        .beyond-section .section-title {
+            color: var(--white);
+        }
+
+        .beyond-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .beyond-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .beyond-card:hover {
+            background: var(--magenta);
+            border-color: var(--magenta);
+            transform: translateY(-10px);
+        }
+
+        .beyond-card .emoji {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .beyond-card h3 {
+            font-size: 1.5rem;
+            color: var(--magenta);
+            margin-bottom: 1rem;
+            transition: color 0.3s;
+        }
+
+        .beyond-card:hover h3 {
+            color: var(--white);
+        }
+
+        .beyond-card p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .beyond-card:hover p {
+            color: var(--white);
+        }
+
+        /* Books Section - Livros que moldaram */
+        .books-section {
+            background: var(--white);
+            border-top: var(--border-thick);
+            border-bottom: var(--border-thick);
+        }
+
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .book-card {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 2rem;
+            border: var(--border-thick);
+            transition: all 0.3s;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 8px 8px 0 var(--magenta);
+        }
+
+        .book-card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .book-card h3 {
+            font-size: 1.2rem;
+            color: var(--magenta);
+            margin-bottom: 0.5rem;
+        }
+
+        .book-card p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Areas Section - Do código ao palco */
+        .areas-detailed {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .area-card {
+            background: var(--white);
+            border: var(--border-thick);
+            padding: 2.5rem;
+            transition: all 0.3s;
+        }
+
+        .area-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 12px 12px 0 var(--magenta);
+        }
+
+        .area-card.featured {
+            border-color: var(--magenta);
+            border-width: 3px;
+        }
+
+        .area-card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .area-card h3 {
+            font-size: 1.8rem;
+            color: var(--magenta);
+            margin-bottom: 1rem;
+        }
+
+        .area-card p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: var(--charcoal);
+        }
+
+        .area-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .area-card li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            color: var(--charcoal);
+        }
+
+        .area-card li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--magenta);
+            font-weight: bold;
         }
 
         /* Wrapped Timeline (No Scroll) */
@@ -577,6 +762,10 @@
             .hero-badge {
                 display: none;
             }
+
+            .areas-detailed {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 768px) {
@@ -615,6 +804,15 @@
                 padding: 2rem 1rem;
                 box-shadow: 8px 8px 0 var(--magenta);
             }
+
+            .beyond-grid,
+            .books-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .areas-detailed {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -627,6 +825,7 @@
             <a href="#" class="logo">VM.</a>
             <ul class="nav-links">
                 <li><a href="#sobre" class="nav-link">Sobre</a></li>
+                <li><a href="#beyond" class="nav-link">Além do Código</a></li>
                 <li><a href="#areas" class="nav-link">Atuação</a></li>
                 <li><a href="#trajetoria" class="nav-link">Trajetória</a></li>
                 <li><a href="#projetos" class="nav-link">Projetos</a></li>
@@ -666,79 +865,163 @@
         </div>
     </section>
 
-    <!-- About Section (Collage) -->
-    <section id="sobre">
+    <!-- Intro Section - Hi! Eu sou a Vitórya -->
+    <section id="sobre" class="intro-section">
         <div class="container">
-            <h2 class="section-title">MANI<span>FESTO</span></h2>
+            <h2 class="section-title">Hi! Eu sou a <span>Vitórya</span> — e essa é a parte onde eu te conto como cheguei
+                até aqui</h2>
 
-            <div class="collage-grid">
-                <div class="collage-item col-8">
-                    <h3>Missão & Propósito</h3>
-                    <p>
-                        Acredito que a tecnologia precisa ser diversa, acessível e humana.
-                        Minha jornada mistura código, liderança e impacto social, sempre buscando abrir portas para quem
-                        vem depois.
-                        Não é apenas sobre escrever linhas de código, é sobre reescrever narrativas.
-                    </p>
-                </div>
-                <div class="collage-item col-4" style="background: var(--magenta); color: var(--white);">
-                    <h3 style="color: var(--white);">Byte Girls</h3>
-                    <p style="color: var(--white);">
-                        Fundadora de uma comunidade que empodera mulheres na tech. Um movimento de acolhimento e
-                        crescimento.
-                    </p>
-                </div>
-                <div class="collage-item col-4">
+            <div class="intro-text">
+                <p style="margin-bottom: 2rem;">
+                    Minha história com tecnologia começou aos 14 anos, quando me tornei <strong>Mentora de
+                        Infraestrutura de Rede</strong> na minha escola — a ETEPAM, aqui no Recife. Naquela época, eu
+                    nem imaginava que aquilo era só o começo de uma jornada que misturaria código, liderança, impacto
+                    social e muito propósito.
+                </p>
+                <p>
+                    Hoje, aos 20 anos, sou <strong>Desenvolvedora de Software, Professora de Programação e
+                        Design</strong> e <strong>Fundadora da Byte Girls</strong> — uma comunidade que empodera e
+                    desenvolve mulheres na tech. Também atuo como <strong>Residente de Software no Porto
+                        Digital</strong> através do programa <strong>Embarque Digital</strong>, onde curso Análise e
+                    Desenvolvimento de Sistemas e trabalho em projetos reais ao lado de grandes empresas referências no
+                    mercado.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beyond Tech Section - Porque eu sou muito mais -->
+    <section id="beyond" class="beyond-section">
+        <div class="container">
+            <h2 class="section-title">Porque eu sou muito mais <span>que a profissão</span></h2>
+
+            <div class="beyond-grid">
+                <div class="beyond-card">
+                    <span class="emoji">🏍️</span>
                     <h3>Motoqueira</h3>
-                    <p>Piloto uma FZ15 rosa. A liberdade em duas rodas me ensina sobre risco, controle e direção.</p>
+                    <p>"A liberdade de pilotar me ensinou a confiar no meu instinto e a não ter medo de acelerar. A moto
+                        é terapia, é estilo, é atitude."</p>
                 </div>
-                <div class="collage-item col-4">
-                    <h3>Professora</h3>
-                    <p>Ensinando programação e design na INFINITY SCHOOL. Formando a próxima geração de líderes.</p>
-                </div>
-                <div class="collage-item col-4">
+
+                <div class="beyond-card">
+                    <span class="emoji">🥊</span>
                     <h3>Lutadora</h3>
-                    <p>Muay Thai: disciplina, resiliência e força. O tatame é minha segunda casa.</p>
+                    <p>"Treinar me trouxe disciplina, resiliência e a certeza de que sou mais forte do que imagino. O
+                        tatame é onde aprendo a cair, levantar e seguir."</p>
+                </div>
+
+                <div class="beyond-card">
+                    <span class="emoji">📸</span>
+                    <h3>Criadora de Conteúdo</h3>
+                    <p>"Compartilho tecnologia, lifestyle e bastidores da vida tech. Meu objetivo? Desmistificar a área
+                        e mostrar que tech também é pra quem tem personalidade forte."</p>
+                </div>
+
+                <div class="beyond-card">
+                    <span class="emoji">🌍</span>
+                    <h3>Poliglota em Construção</h3>
+                    <p>"Estudo inglês, espanhol e italiano porque quero levar minha voz além das fronteiras de Recife (e
+                        do Brasil). O mundo é grande — e eu quero fazer parte dele."</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Areas of Activity Section -->
-    <section id="areas"
-        style="background: var(--white); border-top: var(--border-thick); border-bottom: var(--border-thick);">
+    <!-- Books Section - Livros que moldaram -->
+    <section class="books-section">
         <div class="container">
-            <h2 class="section-title">ÁREAS DE <span>ATUAÇÃO</span></h2>
+            <h2 class="section-title">📚 Livros que <span>moldaram</span> minha trajetória</h2>
 
-            <div class="collage-grid">
-                <div class="collage-item col-4">
-                    <h3>💻 Dev Full Stack</h3>
-                    <p>Construo soluções digitais completas.</p>
+            <div class="books-grid">
+                <div class="book-card">
+                    <span class="emoji">🔥</span>
+                    <h3>"Mindset" - Carol Dweck</h3>
+                    <p>Mentalidade de crescimento</p>
+                </div>
+
+                <div class="book-card">
+                    <span class="emoji">💪</span>
+                    <h3>"Mais Esperto que o Diabo" - Napoleon Hill</h3>
+                    <p>Superando medos e limitações</p>
+                </div>
+
+                <div class="book-card">
+                    <span class="emoji">🚀</span>
+                    <h3>"Sprint" - Jake Knapp</h3>
+                    <p>Inovação e resolução de problemas</p>
+                </div>
+
+                <div class="book-card">
+                    <span class="emoji">💡</span>
+                    <h3>"O Poder do Hábito" - Charles Duhigg</h3>
+                    <p>Transformação através de rotinas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Areas Section - Do código ao palco -->
+    <section id="areas">
+        <div class="container">
+            <h2 class="section-title">Do código ao palco: <span>onde eu atuo</span></h2>
+
+            <div class="areas-detailed">
+                <div class="area-card">
+                    <span class="emoji">💻</span>
+                    <h3>Desenvolvedora Full Stack</h3>
+                    <p>"Eu construo soluções digitais do zero. Front-end, back-end, integrações com IA generativa e tudo
+                        mais que um produto digital precisa pra funcionar de verdade."</p>
                     <ul>
-                        <li>Front-end (React, TS)</li>
-                        <li>Back-end (Java, Node)</li>
-                        <li>Integração com IA</li>
+                        <li>Automação de análise de notícias com IA (Challenge Globo PE)</li>
+                        <li>Site gamificado sobre bairros do Recife</li>
                     </ul>
                 </div>
 
-                <div class="collage-item col-4">
-                    <h3>🎓 Educação</h3>
-                    <p>Compartilho conhecimento para transformar.</p>
+                <div class="area-card featured">
+                    <span class="emoji">🎓</span>
+                    <h3>Professora & Mentora</h3>
+                    <p>"Dou aulas de programação e design na INFINITY SCHOOL e atuo como mentora em eventos e
+                        iniciativas voltadas pra educação tecnológica — especialmente para o público feminino."</p>
                     <ul>
-                        <li>Docência na Infinity School</li>
-                        <li>Mentorias para Mulheres</li>
-                        <li>Palestras em Eventos</li>
+                        <li>Projeto "Líderes Tech do Amanhã"</li>
+                        <li>Mentorias individuais para mulheres</li>
+                        <li>Palestras em escolas e eventos</li>
                     </ul>
                 </div>
 
-                <div class="collage-item col-4">
-                    <h3>🚀 Comunidade</h3>
-                    <p>Lidero iniciativas de impacto social.</p>
+                <div class="area-card featured">
+                    <span class="emoji">🌸</span>
+                    <h3>Fundadora & Ativista</h3>
+                    <p>"Criei a Byte Girls pra ser muito mais que uma comunidade: é um movimento de empoderamento
+                        feminino na tecnologia."</p>
                     <ul>
-                        <li>Founder Byte Girls</li>
-                        <li>Voluntariado Tech</li>
-                        <li>Networking & Carreira</li>
+                        <li>Eventos presenciais e online</li>
+                        <li>Conteúdos sobre carreira e diversidade</li>
+                        <li>Networking e oportunidades</li>
                     </ul>
+                </div>
+
+                <div class="area-card">
+                    <span class="emoji">🔧</span>
+                    <h3>Suporte & Infraestrutura</h3>
+                    <p>"Minha base técnica é sólida: comecei com Manutenção e Suporte em Informática ainda no ensino
+                        médio técnico, liderando equipes e adquirindo conhecimentos sobre Hardware, Servidores e
+                        diferentes Sistemas Operacionais ('i lov linux')."</p>
+                </div>
+
+                <div class="area-card">
+                    <span class="emoji">📱</span>
+                    <h3>Criadora de Conteúdo Tech</h3>
+                    <p>"Compartilho conhecimento, experiências e bastidores da vida tech através de redes. Falo sobre
+                        hardware, carreira, eventos e tecnologia de um jeito real e acessível."</p>
+                </div>
+
+                <div class="area-card">
+                    <span class="emoji">💼</span>
+                    <h3>Empreendedora em Construção</h3>
+                    <p>"Estou estruturando minha própria empresa de desenvolvimento, estudando modelos de negócio e
+                        estratégias comerciais. A meta? Construir soluções com impacto real e elevar minha carreira pro
+                        cenário internacional."</p>
                 </div>
             </div>
         </div>
