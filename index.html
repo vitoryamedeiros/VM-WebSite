@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vitórya Medeiros | Manifesto Tech</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            /* Brand Colors */
+            --magenta: #D6006E;
+            --magenta-dark: #A30054;
+            --cream: #F8F7F5;
+            --white: #FFFFFF;
+            --charcoal: #1A1A1A;
+            --gray-light: #E5E5E5;
+
+            /* Spacing */
+            --container-width: 1400px;
+
+            /* Borders */
+            --border-thick: 2px solid var(--charcoal);
+            --border-thin: 1px solid var(--charcoal);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--magenta);
+            color: var(--white);
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.05em;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 6px 6px 0 var(--charcoal);
+            background: var(--magenta-dark);
+        }
+
+        /* Header - Minimal & Floating */
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 0.4rem 1rem;
+            transform: rotate(-2deg);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--magenta);
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Magazine Hero Section */
+        .hero {
+            height: 100vh;
+            width: 100%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            border-bottom: var(--border-thick);
+            padding-top: 60px;
+            /* Space for nav */
+            z-index: 1;
+        }
+
+        /* Massive Typography */
+        .hero-title-wrap {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            text-align: center;
+            z-index: 1;
+            pointer-events: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 800;
+            line-height: 0.8;
+            white-space: nowrap;
+            letter-spacing: -0.06em;
+            opacity: 0.9;
+        }
+
+        .title-main {
+            font-size: clamp(12vw, 18vw, 400px);
+            color: var(--magenta);
+            z-index: 2;
+        }
+
+        .title-sub {
+            font-size: clamp(10vw, 15vw, 350px);
+            color: transparent;
+            -webkit-text-stroke: 3px var(--magenta);
+            margin-top: -2vw;
+            z-index: 1;
+        }
+
+        /* Editorial Details */
+        .hero-meta {
+            position: absolute;
+            z-index: 3;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+        }
+
+        .meta-tl {
+            top: 120px;
+            left: 2rem;
+        }
+
+        .meta-tr {
+            top: 120px;
+            right: 2rem;
+            text-align: right;
+        }
+
+        .meta-bl {
+            bottom: 2rem;
+            left: 2rem;
+        }
+
+        .meta-br {
+            bottom: 2rem;
+            right: 2rem;
+            text-align: right;
+        }
+
+        .meta-line {
+            display: block;
+            width: 40px;
+            height: 2px;
+            background: var(--charcoal);
+            margin-bottom: 0.5rem;
+        }
+
+        .meta-tr .meta-line {
+            margin-left: auto;
+        }
+
+        /* Floating Badge */
+        .hero-badge {
+            position: absolute;
+            top: 50%;
+            right: 10%;
+            transform: translateY(-50%) rotate(10deg);
+            z-index: 4;
+            background: var(--white);
+            border: 2px solid var(--charcoal);
+            padding: 1rem 2rem;
+            box-shadow: 8px 8px 0 var(--magenta);
+            text-align: center;
+            animation: floatBadge 4s ease-in-out infinite;
+        }
+
+        .hero-badge h3 {
+            font-size: 1.5rem;
+            margin: 0;
+            line-height: 1;
+        }
+
+        .hero-badge span {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: var(--magenta);
+        }
+
+        @keyframes floatBadge {
+
+            0%,
+            100% {
+                transform: translateY(-50%) rotate(10deg);
+            }
+
+            50% {
+                transform: translateY(-60%) rotate(12deg);
+            }
+        }
+
+        /* Section Styles */
+        section:not(.hero) {
+            padding: 8rem 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            font-size: clamp(3rem, 6vw, 5rem);
+            margin-bottom: 5rem;
+            text-align: center;
+            line-height: 0.9;
+        }
+
+        .section-title span {
+            color: var(--magenta);
+        }
+
+        /* Collage Grid */
+        .collage-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2rem;
+        }
+
+        .collage-item {
+            background: var(--white);
+            border: var(--border-thick);
+            padding: 3rem;
+            position: relative;
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .collage-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 12px 12px 0 var(--magenta);
+            z-index: 10;
+        }
+
+        .col-4 {
+            grid-column: span 4;
+        }
+
+        .col-6 {
+            grid-column: span 6;
+        }
+
+        .col-8 {
+            grid-column: span 8;
+        }
+
+        .col-12 {
+            grid-column: span 12;
+        }
+
+        .collage-item h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--magenta);
+        }
+
+        .collage-item p {
+            font-size: 1.1rem;
+            color: var(--charcoal);
+        }
+
+        .collage-item ul {
+            margin-top: 1.5rem;
+            padding-left: 1rem;
+        }
+
+        .collage-item li {
+            list-style-type: square;
+            margin-bottom: 0.5rem;
+            color: var(--charcoal);
+            font-weight: 500;
+        }
+
+        /* Wrapped Timeline (No Scroll) */
+        .timeline-section {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 8rem 0;
+        }
+
+        .timeline-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 3rem;
+            position: relative;
+        }
+
+        .timeline-card {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 2rem;
+            width: 300px;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .timeline-card:hover {
+            background: var(--magenta);
+            border-color: var(--magenta);
+            transform: scale(1.05);
+            color: var(--white);
+        }
+
+        .timeline-card:hover .timeline-year-wrap {
+            color: var(--white);
+        }
+
+        .timeline-card:hover p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .timeline-year-wrap {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            color: var(--magenta);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            line-height: 1;
+            transition: color 0.3s;
+        }
+
+        .timeline-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--white);
+        }
+
+        .timeline-card p {
+            font-size: 0.9rem;
+            color: #aaa;
+            transition: color 0.3s;
+        }
+
+        /* Projects */
+        .project-card {
+            background: var(--white);
+            border: var(--border-thick);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 8px 8px 0 var(--magenta);
+        }
+
+        .project-img {
+            height: 250px;
+            background: var(--charcoal);
+            position: relative;
+            overflow: hidden;
+            border-bottom: var(--border-thick);
+        }
+
+        .project-img::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="2" fill="%23ffffff" opacity="0.2"/></svg>');
+        }
+
+        .project-content {
+            padding: 2rem;
+            flex-grow: 1;
+        }
+
+        .project-tags {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            padding: 0.3rem 0.6rem;
+            background: var(--charcoal);
+            color: var(--white);
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        /* Contact - Polished */
+        .contact-section {
+            text-align: center;
+            background: transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-bg-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20vw;
+            font-weight: 800;
+            color: rgba(0, 0, 0, 0.03);
+            white-space: nowrap;
+            pointer-events: none;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .contact-card {
+            background: var(--white);
+            border: var(--border-thick);
+            padding: 4rem;
+            max-width: 900px;
+            margin: 0 auto;
+            box-shadow: 15px 15px 0 var(--magenta);
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            font-size: 2rem;
+            color: var(--charcoal);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            border: 2px solid var(--charcoal);
+            background: var(--white);
+        }
+
+        .social-link:hover {
+            background: var(--magenta);
+            color: var(--white);
+            transform: rotate(10deg);
+            box-shadow: 5px 5px 0 var(--charcoal);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 4px solid var(--magenta);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 992px) {
+            .title-main {
+                font-size: 18vw;
+            }
+
+            .title-sub {
+                font-size: 15vw;
+            }
+
+            .hero-badge {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .container {
+                padding: 0 1.5rem;
+            }
+
+            .col-4,
+            .col-6,
+            .col-8,
+            .col-12 {
+                grid-column: span 12;
+            }
+
+            .title-main {
+                font-size: 22vw;
+            }
+
+            .title-sub {
+                font-size: 18vw;
+                margin-top: -1vw;
+            }
+
+            .meta-tl,
+            .meta-tr,
+            .meta-bl,
+            .meta-br {
+                font-size: 0.6rem;
+            }
+
+            .contact-card {
+                padding: 2rem 1rem;
+                box-shadow: 8px 8px 0 var(--magenta);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">VM.</a>
+            <ul class="nav-links">
+                <li><a href="#sobre" class="nav-link">Sobre</a></li>
+                <li><a href="#areas" class="nav-link">Atuação</a></li>
+                <li><a href="#trajetoria" class="nav-link">Trajetória</a></li>
+                <li><a href="#projetos" class="nav-link">Projetos</a></li>
+                <li><a href="#contato" class="nav-link">Contato</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Magazine Hero Section -->
+    <section class="hero">
+        <!-- Editorial Meta Data -->
+        <div class="hero-meta meta-tl">
+            <span class="meta-line"></span>
+            Est. 2025
+        </div>
+        <div class="hero-meta meta-tr">
+            <span class="meta-line"></span>
+            Recife, PE
+        </div>
+        <div class="hero-meta meta-bl">
+            Full Stack<br>Developer
+        </div>
+        <div class="hero-meta meta-br">
+            Manifesto<br>Tech
+        </div>
+
+        <!-- Massive Title (Background) -->
+        <div class="hero-title-wrap">
+            <h1 class="hero-title title-main">VITÓRYA</h1>
+            <h1 class="hero-title title-sub">MEDEIROS</h1>
+        </div>
+
+        <!-- Floating Badge -->
+        <div class="hero-badge">
+            <h3>PORTFOLIO</h3>
+            <span>Volume 01</span>
+        </div>
+    </section>
+
+    <!-- About Section (Collage) -->
+    <section id="sobre">
+        <div class="container">
+            <h2 class="section-title">MANI<span>FESTO</span></h2>
+
+            <div class="collage-grid">
+                <div class="collage-item col-8">
+                    <h3>Missão & Propósito</h3>
+                    <p>
+                        Acredito que a tecnologia precisa ser diversa, acessível e humana.
+                        Minha jornada mistura código, liderança e impacto social, sempre buscando abrir portas para quem
+                        vem depois.
+                        Não é apenas sobre escrever linhas de código, é sobre reescrever narrativas.
+                    </p>
+                </div>
+                <div class="collage-item col-4" style="background: var(--magenta); color: var(--white);">
+                    <h3 style="color: var(--white);">Byte Girls</h3>
+                    <p style="color: var(--white);">
+                        Fundadora de uma comunidade que empodera mulheres na tech. Um movimento de acolhimento e
+                        crescimento.
+                    </p>
+                </div>
+                <div class="collage-item col-4">
+                    <h3>Motoqueira</h3>
+                    <p>Piloto uma FZ15 rosa. A liberdade em duas rodas me ensina sobre risco, controle e direção.</p>
+                </div>
+                <div class="collage-item col-4">
+                    <h3>Professora</h3>
+                    <p>Ensinando programação e design na INFINITY SCHOOL. Formando a próxima geração de líderes.</p>
+                </div>
+                <div class="collage-item col-4">
+                    <h3>Lutadora</h3>
+                    <p>Muay Thai: disciplina, resiliência e força. O tatame é minha segunda casa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Areas of Activity Section -->
+    <section id="areas"
+        style="background: var(--white); border-top: var(--border-thick); border-bottom: var(--border-thick);">
+        <div class="container">
+            <h2 class="section-title">ÁREAS DE <span>ATUAÇÃO</span></h2>
+
+            <div class="collage-grid">
+                <div class="collage-item col-4">
+                    <h3>💻 Dev Full Stack</h3>
+                    <p>Construo soluções digitais completas.</p>
+                    <ul>
+                        <li>Front-end (React, TS)</li>
+                        <li>Back-end (Java, Node)</li>
+                        <li>Integração com IA</li>
+                    </ul>
+                </div>
+
+                <div class="collage-item col-4">
+                    <h3>🎓 Educação</h3>
+                    <p>Compartilho conhecimento para transformar.</p>
+                    <ul>
+                        <li>Docência na Infinity School</li>
+                        <li>Mentorias para Mulheres</li>
+                        <li>Palestras em Eventos</li>
+                    </ul>
+                </div>
+
+                <div class="collage-item col-4">
+                    <h3>🚀 Comunidade</h3>
+                    <p>Lidero iniciativas de impacto social.</p>
+                    <ul>
+                        <li>Founder Byte Girls</li>
+                        <li>Voluntariado Tech</li>
+                        <li>Networking & Carreira</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section (Wrapped Grid) -->
+    <section id="trajetoria" class="timeline-section">
+        <div class="container">
+            <h2 class="section-title" style="color: var(--white);">TRAJE<span>TÓRIA</span></h2>
+
+            <div class="timeline-wrap">
+                <div class="timeline-card">
+                    <div class="timeline-year-wrap">2019</div>
+                    <h3>Início na Tech</h3>
+                    <p>Entrada no Ensino Médio Técnico em Manutenção e Suporte na ETEPAM.</p>
+                </div>
+
+                <div class="timeline-card">
+                    <div class="timeline-year-wrap">2021</div>
+                    <h3>Liderança Jovem</h3>
+                    <p>Gerente de Eventos no NEXA e início da jornada empreendedora.</p>
+                </div>
+
+                <div class="timeline-card">
+                    <div class="timeline-year-wrap">2024</div>
+                    <h3>Embarque Digital</h3>
+                    <p>Residente de Software no Porto Digital + FICR. Projetos reais.</p>
+                </div>
+
+                <div class="timeline-card">
+                    <div class="timeline-year-wrap">2025</div>
+                    <h3>Byte Girls & Docência</h3>
+                    <p>Fundação da comunidade Byte Girls e Professora na INFINITY SCHOOL.</p>
+                </div>
+
+                <div class="timeline-card" style="border-color: var(--magenta);">
+                    <div class="timeline-year-wrap">Hoje</div>
+                    <h3>Construindo o Futuro</h3>
+                    <p>Focada em expansão internacional e novos negócios.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projetos">
+        <div class="container">
+            <h2 class="section-title">PRO<span>JETOS</span></h2>
+
+            <div class="collage-grid">
+                <div class="col-4">
+                    <div class="project-card">
+                        <div class="project-img"></div>
+                        <div class="project-content">
+                            <h3>Recife Gamificado</h3>
+                            <p>Plataforma comunitária que conecta turismo e cultura local através de gamificação.</p>
+                            <div class="project-tags">
+                                <span class="tag">Web App</span>
+                                <span class="tag">Gamification</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <div class="project-card">
+                        <div class="project-img"></div>
+                        <div class="project-content">
+                            <h3>IA Analysis (Globo PE)</h3>
+                            <p>Automação de análise de notícias utilizando IA Generativa para otimizar moderação.</p>
+                            <div class="project-tags">
+                                <span class="tag">AI</span>
+                                <span class="tag">Python</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <div class="project-card">
+                        <div class="project-img"></div>
+                        <div class="project-content">
+                            <h3>Byte Girls Platform</h3>
+                            <p>Hub digital para a comunidade, conectando mulheres a oportunidades e mentorias.</p>
+                            <div class="project-tags">
+                                <span class="tag">Community</span>
+                                <span class="tag">React</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section (Polished) -->
+    <section id="contato" class="contact-section">
+        <div class="contact-bg-text">FALE COMIGO</div>
+
+        <div class="container">
+            <div class="contact-card">
+                <h2 class="section-title" style="margin-bottom: 2rem; font-size: 3rem;">VAMOS <span>CONVERSAR?</span>
+                </h2>
+                <p
+                    style="font-size: 1.2rem; margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Seja para mentorias, palestras, parcerias ou apenas para trocar uma ideia sobre tecnologia e
+                    inovação.
+                </p>
+
+                <div class="contact-links">
+                    <a href="mailto:vitoryamedeiros05@gmail.com" class="social-link" title="Email">📧</a>
+                    <a href="https://www.linkedin.com/in/vitoryamedeiros" target="_blank" class="social-link"
+                        title="LinkedIn">💼</a>
+                    <a href="https://github.com/vitoryamedeiros" target="_blank" class="social-link"
+                        title="GitHub">💻</a>
+                    <a href="https://instagram.com/vitoryamedeiros" target="_blank" class="social-link"
+                        title="Instagram">📸</a>
+                </div>
+
+                <a href="mailto:vitoryamedeiros05@gmail.com" class="btn">Enviar Email</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Vitórya Medeiros. Manifesto Tech.</p>
+            <p style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.7;">Designed with 💖 & Magenta</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
