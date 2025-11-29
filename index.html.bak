@@ -10,11 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700;800&family=Dela+Gothic+One&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
-
-    <!-- Phosphor Icons -->
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
     <style>
         :root {
@@ -55,20 +52,14 @@
 
         h1,
         h2,
+        h3,
         h4,
         h5,
         h6 {
-            font-family: 'Dela Gothic One', cursive;
-            font-weight: 400;
-            text-transform: uppercase;
-            letter-spacing: -0.02em;
-        }
-
-        h3 {
             font-family: 'Space Grotesk', sans-serif;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: -0.02em;
         }
 
         a {
@@ -119,7 +110,7 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            padding: 2.5rem 0;
+            padding: 1.5rem 0;
         }
 
         .nav-container {
@@ -129,9 +120,8 @@
         }
 
         .logo {
-            font-family: 'Dela Gothic One', cursive;
             font-size: 1.2rem;
-            font-weight: 400;
+            font-weight: 800;
             letter-spacing: -0.05em;
             background: var(--charcoal);
             color: var(--white);
@@ -141,14 +131,13 @@
 
         .nav-links {
             display: flex;
-            gap: 3rem;
+            gap: 2rem;
         }
 
         .nav-link {
-            font-family: 'Space Grotesk', sans-serif;
             font-weight: 600;
             text-transform: uppercase;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             letter-spacing: 0.1em;
             position: relative;
         }
@@ -200,8 +189,8 @@
         }
 
         .hero-title {
-            font-family: 'Dela Gothic One', cursive;
-            font-weight: 400;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 800;
             line-height: 0.8;
             white-space: nowrap;
             letter-spacing: -0.06em;
@@ -226,20 +215,20 @@
         .hero-meta {
             position: absolute;
             z-index: 3;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.9rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.2em;
         }
 
         .meta-tl {
-            top: 140px;
+            top: 120px;
             left: 2rem;
         }
 
         .meta-tr {
-            top: 140px;
+            top: 120px;
             right: 2rem;
             text-align: right;
         }
@@ -267,47 +256,32 @@
             margin-left: auto;
         }
 
-        /* Floating Badge - Starburst */
+        /* Floating Badge */
         .hero-badge {
             position: absolute;
             top: 50%;
             right: 10%;
             transform: translateY(-50%) rotate(10deg);
             z-index: 4;
-            background: var(--magenta);
-            color: var(--white);
-            padding: 3rem 2rem;
+            background: var(--white);
+            border: 2px solid var(--charcoal);
+            padding: 1rem 2rem;
+            box-shadow: 8px 8px 0 var(--magenta);
             text-align: center;
             animation: floatBadge 4s ease-in-out infinite;
-
-            /* Starburst Shape */
-            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%,
-                    50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-            width: 200px;
-            height: 200px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            border: none;
-            box-shadow: none;
         }
 
         .hero-badge h3 {
-            font-family: 'Dela Gothic One', cursive;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             margin: 0;
             line-height: 1;
-            color: var(--white);
         }
 
         .hero-badge span {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
             font-weight: 600;
-            color: var(--white);
-            margin-top: 0.5rem;
+            color: var(--magenta);
         }
 
         @keyframes floatBadge {
@@ -338,7 +312,6 @@
 
         .section-title span {
             color: var(--magenta);
-            font-family: 'Space Grotesk', sans-serif;
         }
 
         /* Intro Section - Hi! Eu sou a Vitórya */
@@ -355,7 +328,7 @@
         }
 
         .intro-text {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             line-height: 1.8;
             max-width: 1000px;
         }
@@ -430,8 +403,12 @@
 
         /* Beyond Tech Section - Porque eu sou muito mais */
         .beyond-section {
-            background: var(--cream);
-            color: var(--charcoal);
+            background: var(--charcoal);
+            color: var(--white);
+        }
+
+        .beyond-section .section-title {
+            color: var(--white);
         }
 
         .beyond-grid {
@@ -441,8 +418,8 @@
         }
 
         .beyond-card {
-            background: var(--white);
-            border: var(--border-thick);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 2.5rem;
             transition: all 0.3s;
             text-align: center;
@@ -452,18 +429,12 @@
             background: var(--magenta);
             border-color: var(--magenta);
             transform: translateY(-10px);
-            box-shadow: 8px 8px 0 var(--charcoal);
         }
 
-        .beyond-card i {
+        .beyond-card .emoji {
             font-size: 3rem;
             margin-bottom: 1rem;
             display: block;
-            color: var(--magenta);
-        }
-
-        .beyond-card:hover i {
-            color: var(--white);
         }
 
         .beyond-card h3 {
@@ -480,7 +451,7 @@
         .beyond-card p {
             font-size: 1rem;
             line-height: 1.6;
-            color: var(--charcoal);
+            color: rgba(255, 255, 255, 0.8);
         }
 
         .beyond-card:hover p {
@@ -501,8 +472,8 @@
         }
 
         .book-card {
-            background: var(--white);
-            color: var(--charcoal);
+            background: var(--charcoal);
+            color: var(--white);
             padding: 2rem;
             border: var(--border-thick);
             transition: all 0.3s;
@@ -513,11 +484,10 @@
             box-shadow: 8px 8px 0 var(--magenta);
         }
 
-        .book-card i {
+        .book-card .emoji {
             font-size: 2.5rem;
             margin-bottom: 1rem;
             display: block;
-            color: var(--magenta);
         }
 
         .book-card h3 {
@@ -528,8 +498,7 @@
 
         .book-card p {
             font-size: 0.9rem;
-            color: var(--charcoal);
-            opacity: 0.8;
+            color: rgba(255, 255, 255, 0.7);
         }
 
         /* Areas Section - Do código ao palco */
@@ -556,11 +525,10 @@
             border-width: 3px;
         }
 
-        .area-card i {
+        .area-card .emoji {
             font-size: 2.5rem;
             margin-bottom: 1rem;
             display: block;
-            color: var(--magenta);
         }
 
         .area-card h3 {
@@ -635,10 +603,10 @@
         }
 
         .timeline-year-wrap {
-            font-family: 'Dela Gothic One', cursive;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 3rem;
             color: var(--magenta);
-            font-weight: 400;
+            font-weight: 700;
             margin-bottom: 0.5rem;
             line-height: 1;
             transition: color 0.3s;
@@ -728,7 +696,7 @@
             color: rgba(0, 0, 0, 0.03);
             white-space: nowrap;
             pointer-events: none;
-            font-family: 'Dela Gothic One', cursive;
+            font-family: 'Space Grotesk', sans-serif;
         }
 
         .contact-card {
@@ -893,7 +861,7 @@
         <!-- Floating Badge -->
         <div class="hero-badge">
             <h3>PORTFOLIO</h3>
-            <span>MANIFESTO</span>
+            <span>Volume 01</span>
         </div>
     </section>
 
@@ -929,31 +897,31 @@
 
             <div class="beyond-grid">
                 <div class="beyond-card">
-                    <i class="ph ph-motorcycle"></i>
+                    <span class="emoji">🏍️</span>
                     <h3>Motoqueira</h3>
-                    <p>A liberdade de pilotar me ensinou a confiar no meu instinto e a não ter medo de acelerar. A moto
-                        é terapia, é estilo, é atitude.</p>
+                    <p>"A liberdade de pilotar me ensinou a confiar no meu instinto e a não ter medo de acelerar. A moto
+                        é terapia, é estilo, é atitude."</p>
                 </div>
 
                 <div class="beyond-card">
-                    <i class="ph ph-boxing-glove"></i>
+                    <span class="emoji">🥊</span>
                     <h3>Lutadora</h3>
-                    <p>Treinar me trouxe disciplina, resiliência e a certeza de que sou mais forte do que imagino. O
-                        tatame é onde aprendo a cair, levantar e seguir.</p>
+                    <p>"Treinar me trouxe disciplina, resiliência e a certeza de que sou mais forte do que imagino. O
+                        tatame é onde aprendo a cair, levantar e seguir."</p>
                 </div>
 
                 <div class="beyond-card">
-                    <i class="ph ph-camera"></i>
+                    <span class="emoji">📸</span>
                     <h3>Criadora de Conteúdo</h3>
-                    <p>Compartilho tecnologia, lifestyle e bastidores da vida tech. Meu objetivo? Desmistificar a área
-                        e mostrar que tech também é pra quem tem personalidade forte.</p>
+                    <p>"Compartilho tecnologia, lifestyle e bastidores da vida tech. Meu objetivo? Desmistificar a área
+                        e mostrar que tech também é pra quem tem personalidade forte."</p>
                 </div>
 
                 <div class="beyond-card">
-                    <i class="ph ph-globe"></i>
+                    <span class="emoji">🌍</span>
                     <h3>Poliglota em Construção</h3>
-                    <p>Estudo inglês, espanhol e italiano porque quero levar minha voz além das fronteiras de Recife (e
-                        do Brasil). O mundo é grande — e eu quero fazer parte dele.</p>
+                    <p>"Estudo inglês, espanhol e italiano porque quero levar minha voz além das fronteiras de Recife (e
+                        do Brasil). O mundo é grande — e eu quero fazer parte dele."</p>
                 </div>
             </div>
         </div>
@@ -962,29 +930,29 @@
     <!-- Books Section - Livros que moldaram -->
     <section class="books-section">
         <div class="container">
-            <h2 class="section-title">Livros que <span>moldaram</span> minha trajetória</h2>
+            <h2 class="section-title">📚 Livros que <span>moldaram</span> minha trajetória</h2>
 
             <div class="books-grid">
                 <div class="book-card">
-                    <i class="ph ph-brain"></i>
+                    <span class="emoji">🔥</span>
                     <h3>"Mindset" - Carol Dweck</h3>
                     <p>Mentalidade de crescimento</p>
                 </div>
 
                 <div class="book-card">
-                    <i class="ph ph-lightning"></i>
+                    <span class="emoji">💪</span>
                     <h3>"Mais Esperto que o Diabo" - Napoleon Hill</h3>
                     <p>Superando medos e limitações</p>
                 </div>
 
                 <div class="book-card">
-                    <i class="ph ph-rocket-launch"></i>
+                    <span class="emoji">🚀</span>
                     <h3>"Sprint" - Jake Knapp</h3>
                     <p>Inovação e resolução de problemas</p>
                 </div>
 
                 <div class="book-card">
-                    <i class="ph ph-lightbulb"></i>
+                    <span class="emoji">💡</span>
                     <h3>"O Poder do Hábito" - Charles Duhigg</h3>
                     <p>Transformação através de rotinas</p>
                 </div>
@@ -999,10 +967,10 @@
 
             <div class="areas-detailed">
                 <div class="area-card">
-                    <i class="ph ph-code"></i>
+                    <span class="emoji">💻</span>
                     <h3>Desenvolvedora Full Stack</h3>
-                    <p>Eu construo soluções digitais do zero. Front-end, back-end, integrações com IA generativa e tudo
-                        mais que um produto digital precisa pra funcionar de verdade.</p>
+                    <p>"Eu construo soluções digitais do zero. Front-end, back-end, integrações com IA generativa e tudo
+                        mais que um produto digital precisa pra funcionar de verdade."</p>
                     <ul>
                         <li>Automação de análise de notícias com IA (Challenge Globo PE)</li>
                         <li>Site gamificado sobre bairros do Recife</li>
@@ -1010,10 +978,10 @@
                 </div>
 
                 <div class="area-card featured">
-                    <i class="ph ph-student"></i>
+                    <span class="emoji">🎓</span>
                     <h3>Professora & Mentora</h3>
-                    <p>Dou aulas de programação e design na INFINITY SCHOOL e atuo como mentora em eventos e
-                        iniciativas voltadas pra educação tecnológica — especialmente para o público feminino.</p>
+                    <p>"Dou aulas de programação e design na INFINITY SCHOOL e atuo como mentora em eventos e
+                        iniciativas voltadas pra educação tecnológica — especialmente para o público feminino."</p>
                     <ul>
                         <li>Projeto "Líderes Tech do Amanhã"</li>
                         <li>Mentorias individuais para mulheres</li>
@@ -1022,10 +990,10 @@
                 </div>
 
                 <div class="area-card featured">
-                    <i class="ph ph-users-three"></i>
+                    <span class="emoji">🌸</span>
                     <h3>Fundadora & Ativista</h3>
-                    <p>Criei a Byte Girls pra ser muito mais que uma comunidade: é um movimento de empoderamento
-                        feminino na tecnologia.</p>
+                    <p>"Criei a Byte Girls pra ser muito mais que uma comunidade: é um movimento de empoderamento
+                        feminino na tecnologia."</p>
                     <ul>
                         <li>Eventos presenciais e online</li>
                         <li>Conteúdos sobre carreira e diversidade</li>
@@ -1034,26 +1002,26 @@
                 </div>
 
                 <div class="area-card">
-                    <i class="ph ph-wrench"></i>
+                    <span class="emoji">🔧</span>
                     <h3>Suporte & Infraestrutura</h3>
-                    <p>Minha base técnica é sólida: comecei com Manutenção e Suporte em Informática ainda no ensino
+                    <p>"Minha base técnica é sólida: comecei com Manutenção e Suporte em Informática ainda no ensino
                         médio técnico, liderando equipes e adquirindo conhecimentos sobre Hardware, Servidores e
-                        diferentes Sistemas Operacionais ('i lov linux').</p>
+                        diferentes Sistemas Operacionais ('i lov linux')."</p>
                 </div>
 
                 <div class="area-card">
-                    <i class="ph ph-device-mobile"></i>
+                    <span class="emoji">📱</span>
                     <h3>Criadora de Conteúdo Tech</h3>
-                    <p>Compartilho conhecimento, experiências e bastidores da vida tech através de redes. Falo sobre
-                        hardware, carreira, eventos e tecnologia de um jeito real e acessível.</p>
+                    <p>"Compartilho conhecimento, experiências e bastidores da vida tech através de redes. Falo sobre
+                        hardware, carreira, eventos e tecnologia de um jeito real e acessível."</p>
                 </div>
 
                 <div class="area-card">
-                    <i class="ph ph-briefcase"></i>
+                    <span class="emoji">💼</span>
                     <h3>Empreendedora em Construção</h3>
-                    <p>Estou estruturando minha própria empresa de desenvolvimento, estudando modelos de negócio e
+                    <p>"Estou estruturando minha própria empresa de desenvolvimento, estudando modelos de negócio e
                         estratégias comerciais. A meta? Construir soluções com impacto real e elevar minha carreira pro
-                        cenário internacional.</p>
+                        cenário internacional."</p>
                 </div>
             </div>
         </div>
@@ -1164,20 +1132,13 @@
                 </p>
 
                 <div class="contact-links">
-                    <a href="mailto:vitoryamedeiros05@gmail.com" class="social-link" title="Email">
-                        <i class="ph ph-envelope"></i>
-                    </a>
+                    <a href="mailto:vitoryamedeiros05@gmail.com" class="social-link" title="Email">📧</a>
                     <a href="https://www.linkedin.com/in/vitoryamedeiros" target="_blank" class="social-link"
-                        title="LinkedIn">
-                        <i class="ph ph-linkedin-logo"></i>
-                    </a>
-                    <a href="https://github.com/vitoryamedeiros" target="_blank" class="social-link" title="GitHub">
-                        <i class="ph ph-github-logo"></i>
-                    </a>
+                        title="LinkedIn">💼</a>
+                    <a href="https://github.com/vitoryamedeiros" target="_blank" class="social-link"
+                        title="GitHub">💻</a>
                     <a href="https://instagram.com/vitoryamedeiros" target="_blank" class="social-link"
-                        title="Instagram">
-                        <i class="ph ph-instagram-logo"></i>
-                    </a>
+                        title="Instagram">📸</a>
                 </div>
 
                 <a href="mailto:vitoryamedeiros05@gmail.com" class="btn">Enviar Email</a>
