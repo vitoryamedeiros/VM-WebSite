@@ -846,6 +846,177 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Minha Jornada Section */
+        .journey-section {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Block 1: Intro */
+        .journey-intro {
+            padding: 8rem 2rem 4rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .journey-text {
+            font-size: clamp(1.2rem, 2vw, 1.5rem);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .journey-text strong {
+            color: var(--magenta);
+            font-weight: 700;
+        }
+
+        .journey-connector {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            color: var(--magenta);
+            margin-top: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            opacity: 0.8;
+        }
+
+        .journey-connector::after {
+            content: '';
+            height: 1px;
+            flex-grow: 1;
+            background: linear-gradient(90deg, var(--magenta), transparent);
+        }
+
+        /* Block 2: Cinematic Timeline */
+        .journey-timeline-block {
+            padding: 4rem 2rem;
+            position: relative;
+            background: linear-gradient(180deg, var(--charcoal) 0%, #111 50%, var(--charcoal) 100%);
+        }
+
+        .timeline-cinematic {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline-cinematic::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .timeline-node {
+            position: relative;
+            padding-bottom: 4rem;
+            padding-left: 2rem;
+        }
+
+        .timeline-node::before {
+            content: '';
+            position: absolute;
+            left: -2.6rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: var(--charcoal);
+            border: 2px solid var(--magenta);
+            border-radius: 50%;
+            z-index: 2;
+            transition: all 0.3s;
+        }
+
+        .timeline-node:hover::before {
+            background: var(--magenta);
+            box-shadow: 0 0 15px var(--magenta);
+            transform: scale(1.2);
+        }
+
+        .timeline-year {
+            font-family: 'Dela Gothic One', cursive;
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.1);
+            position: absolute;
+            left: -5rem;
+            top: -1rem;
+            z-index: 0;
+            pointer-events: none;
+            transition: all 0.3s;
+        }
+
+        .timeline-node:hover .timeline-year {
+            color: rgba(214, 0, 110, 0.2);
+            transform: translateX(10px);
+        }
+
+        .timeline-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.5rem;
+            color: var(--magenta);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content p {
+            font-size: 1rem;
+            color: #ccc;
+        }
+
+        /* Block 3: Closing */
+        .journey-closing {
+            padding: 6rem 2rem;
+            text-align: center;
+            background: var(--charcoal);
+        }
+
+        .closing-text {
+            font-family: 'Dela Gothic One', cursive;
+            font-size: clamp(2rem, 5vw, 4rem);
+            line-height: 1.1;
+            background: linear-gradient(45deg, var(--white), var(--gray-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .closing-sub {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.2rem;
+            color: var(--magenta);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            .timeline-cinematic {
+                padding-left: 1rem;
+            }
+
+            .timeline-year {
+                font-size: 2rem;
+                left: -1rem;
+                top: -2rem;
+            }
+
+            .timeline-node::before {
+                left: -1.4rem;
+            }
+        }
     </style>
 </head>
 
@@ -856,10 +1027,9 @@
         <div class="container nav-container">
             <a href="#" class="logo">VM.</a>
             <ul class="nav-links">
-                <li><a href="#sobre" class="nav-link">Sobre</a></li>
+                <li><a href="#minha-jornada" class="nav-link">Minha Jornada</a></li>
                 <li><a href="#beyond" class="nav-link">Além do Código</a></li>
                 <li><a href="#areas" class="nav-link">Atuação</a></li>
-                <li><a href="#trajetoria" class="nav-link">Trajetória</a></li>
                 <li><a href="#projetos" class="nav-link">Projetos</a></li>
                 <li><a href="#contato" class="nav-link">Contato</a></li>
             </ul>
@@ -897,55 +1067,118 @@
         </div>
     </section>
 
-    <!-- Intro Section - Hi! Eu sou a Vitórya -->
-    <section id="sobre" class="intro-section">
-        <div class="container">
-            <h2 class="section-title">Hi! Eu sou a <span>Vitórya</span> — e essa é a parte onde eu te conto como cheguei
-                até aqui</h2>
+    <!-- Minha Jornada Section (Unified) -->
+    <section id="minha-jornada" class="journey-section">
+        <!-- Block 1: Storytelling -->
+        <div class="journey-intro">
+            <h2 class="section-title" style="text-align: left; color: var(--white); margin-bottom: 3rem;">
+                Minha <span>Jornada</span>
+            </h2>
 
-            <div class="intro-text">
-                <p style="margin-bottom: 2rem;">
-                    Minha história com tecnologia começou aos 14 anos, quando me tornei <strong>Mentora de
-                        Infraestrutura de Rede</strong> na minha escola — a ETEPAM, aqui no Recife. Naquela época, eu
-                    nem imaginava que aquilo era só o começo de uma jornada que misturaria código, liderança, impacto
-                    social e muito propósito.
-                </p>
+            <div class="journey-text">
                 <p>
-                    Hoje, aos 20 anos, sou <strong>Desenvolvedora de Software, Professora de Programação e
-                        Design</strong> e <strong>Fundadora da Byte Girls</strong> — uma comunidade que empodera e
-                    desenvolve mulheres na tech. Também atuo como <strong>Residente de Software no Porto
-                        Digital</strong> através do programa <strong>Embarque Digital</strong>, onde curso Análise e
-                    Desenvolvimento de Sistemas e trabalho em projetos reais ao lado de grandes empresas referências no
-                    mercado.
+                    Minha história na tecnologia começou aos 14 anos, quando me tornei <strong>Mentora de
+                        Infraestrutura</strong> na ETEPAM. Eu não sabia, mas aqueles laboratórios eram só os primeiros
+                    passos de uma jornada que misturaria código, liderança, impacto social e um propósito gigante.
+                </p>
+                <br>
+                <p>
+                    Hoje, aos 20 anos, atuo como <strong>Desenvolvedora de Software, Designer, Professora, Fundadora da
+                        ByteGirls e Residente de Software no Porto Digital</strong>. Construo soluções reais, ensino,
+                    lidero e crio comunidades.
                 </p>
             </div>
+
+            <div class="journey-connector">
+                E essa é a linha do tempo que me trouxe até aqui…
+            </div>
+        </div>
+
+        <!-- Block 2: Cinematic Timeline -->
+        <div class="journey-timeline-block">
+            <div class="timeline-cinematic">
+                <div class="timeline-node">
+                    <span class="timeline-year">2019</span>
+                    <div class="timeline-content">
+                        <h3>Início na Tech</h3>
+                        <p>Entrada no Ensino Médio Técnico em Manutenção e Suporte na ETEPAM. Onde tudo começou.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-node">
+                    <span class="timeline-year">2021</span>
+                    <div class="timeline-content">
+                        <h3>Liderança Jovem</h3>
+                        <p>Gerente de Eventos no NEXA e início da jornada empreendedora. Descobrindo o poder da gestão.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-node">
+                    <span class="timeline-year">2024</span>
+                    <div class="timeline-content">
+                        <h3>Embarque Digital</h3>
+                        <p>Residente de Software no Porto Digital + FICR. Mergulho profundo no desenvolvimento de
+                            software e projetos reais.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-node">
+                    <span class="timeline-year">2025</span>
+                    <div class="timeline-content">
+                        <h3>ByteGirls & Docência</h3>
+                        <p>Fundação da comunidade Byte Girls e Professora na INFINITY SCHOOL. Compartilhando
+                            conhecimento e empoderando mulheres.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-node">
+                    <span class="timeline-year">HOJE</span>
+                    <div class="timeline-content">
+                        <h3>Construindo o Futuro</h3>
+                        <p>Focada em expansão internacional, novos negócios e em criar soluções que impactam o mundo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Block 3: Closing -->
+        <div class="journey-closing">
+            <div class="closing-text">"Eu nasci pra criar.<br>E ainda estou só começando."</div>
+            <div class="closing-sub">Vitórya Medeiros</div>
         </div>
     </section>
 
     <!-- Beyond Tech Section - Porque eu sou muito mais -->
     <section id="beyond" class="beyond-section">
         <div class="container">
-            <h2 class="section-title">Porque eu sou muito mais <span>que a profissão</span></h2>
+            <h2 class="section-title">Muito + que <br><span> "A menina do T.I"</span></h2>
 
             <div class="beyond-grid">
                 <div class="beyond-card">
                     <i class="ph ph-motorcycle"></i>
                     <h3>Motoqueira</h3>
-                    <p>A liberdade de pilotar me ensinou a confiar no meu instinto e a não ter medo de acelerar. A moto
-                        é terapia, é estilo, é atitude.</p>
+                    <p>Minha moto é minha válvula de escape e meu grito de liberdade.
+                        <br>Pilotar me ensinou a confiar no meu instinto, a acelerar mesmo quando o mundo tentar te
+                        frear.
+                        É terapia em duas rodas, é atitude, é o meu jeito de existir sem pedir licença.
+                    </p>
                 </div>
 
                 <div class="beyond-card">
                     <i class="ph ph-boxing-glove"></i>
                     <h3>Lutadora</h3>
-                    <p>Treinar me trouxe disciplina, resiliência e a certeza de que sou mais forte do que imagino. O
-                        tatame é onde aprendo a cair, levantar e seguir.</p>
+                    <p>Treinar me trouxe disciplina, resiliência e a certeza de que sou mais forte do que imagino.
+                        Disciplina, resiliência e força mental: o Muay Thai me ensinou isso. Guarda alta, levantar e
+                        seguir. Sempre.</p>
                 </div>
 
                 <div class="beyond-card">
                     <i class="ph ph-camera"></i>
                     <h3>Criadora de Conteúdo</h3>
-                    <p>Compartilho tecnologia, lifestyle e bastidores da vida tech. Meu objetivo? Desmistificar a área
+                    <p>Crio pra mostrar que tecnologia não tem dress code, nem rótulo — tem gente de verdade.
+                        Meu objetivo? Desmistificar a área
                         e mostrar que tech também é pra quem tem personalidade forte.</p>
                 </div>
 
@@ -995,7 +1228,7 @@
     <!-- Areas Section - Do código ao palco -->
     <section id="areas">
         <div class="container">
-            <h2 class="section-title">Do código ao palco: <span>onde eu atuo</span></h2>
+            <h2 class="section-title">Do código ao palco: <br><span>minhas áreas de atuação</span></h2>
 
             <div class="areas-detailed">
                 <div class="area-card">
@@ -1054,45 +1287,6 @@
                     <p>Estou estruturando minha própria empresa de desenvolvimento, estudando modelos de negócio e
                         estratégias comerciais. A meta? Construir soluções com impacto real e elevar minha carreira pro
                         cenário internacional.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Timeline Section (Wrapped Grid) -->
-    <section id="trajetoria" class="timeline-section">
-        <div class="container">
-            <h2 class="section-title" style="color: var(--white);">TRAJE<span>TÓRIA</span></h2>
-
-            <div class="timeline-wrap">
-                <div class="timeline-card">
-                    <div class="timeline-year-wrap">2019</div>
-                    <h3>Início na Tech</h3>
-                    <p>Entrada no Ensino Médio Técnico em Manutenção e Suporte na ETEPAM.</p>
-                </div>
-
-                <div class="timeline-card">
-                    <div class="timeline-year-wrap">2021</div>
-                    <h3>Liderança Jovem</h3>
-                    <p>Gerente de Eventos no NEXA e início da jornada empreendedora.</p>
-                </div>
-
-                <div class="timeline-card">
-                    <div class="timeline-year-wrap">2024</div>
-                    <h3>Embarque Digital</h3>
-                    <p>Residente de Software no Porto Digital + FICR. Projetos reais.</p>
-                </div>
-
-                <div class="timeline-card">
-                    <div class="timeline-year-wrap">2025</div>
-                    <h3>Byte Girls & Docência</h3>
-                    <p>Fundação da comunidade Byte Girls e Professora na INFINITY SCHOOL.</p>
-                </div>
-
-                <div class="timeline-card" style="border-color: var(--magenta);">
-                    <div class="timeline-year-wrap">Hoje</div>
-                    <h3>Construindo o Futuro</h3>
-                    <p>Focada em expansão internacional e novos negócios.</p>
                 </div>
             </div>
         </div>
