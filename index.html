@@ -16,1322 +16,8 @@
     <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
-    <style>
-        :root {
-            /* Brand Colors */
-            --magenta: #D6006E;
-            --magenta-dark: #A30054;
-            --cream: #F8F7F5;
-            --white: #FFFFFF;
-            --charcoal: #1A1A1A;
-            --gray-light: #E5E5E5;
-
-            /* Spacing */
-            --container-width: 1400px;
-
-            /* Borders */
-            --border-thick: 2px solid var(--charcoal);
-            --border-thin: 1px solid var(--charcoal);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--cream);
-            color: var(--charcoal);
-            line-height: 1.6;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        h1,
-        h2,
-        h4,
-        h5,
-        h6 {
-            font-family: 'Dela Gothic One', cursive;
-            font-weight: 400;
-            text-transform: uppercase;
-            letter-spacing: -0.02em;
-        }
-
-        h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.3s ease;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        /* Utilities */
-        .container {
-            max-width: var(--container-width);
-            margin: 0 auto;
-            padding: 0 2rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: var(--magenta);
-            color: var(--white);
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            text-transform: uppercase;
-            border: none;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            position: relative;
-            overflow: hidden;
-            letter-spacing: 0.05em;
-        }
-
-        .btn:hover {
-            transform: translateY(-4px);
-            box-shadow: 6px 6px 0 var(--charcoal);
-            background: var(--magenta-dark);
-        }
-
-        /* Header - Minimal & Floating */
-        header {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 2.5rem 0;
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: 'Dela Gothic One', cursive;
-            font-size: 1.2rem;
-            font-weight: 400;
-            letter-spacing: -0.05em;
-            background: var(--charcoal);
-            color: var(--white);
-            padding: 0.4rem 1rem;
-            transform: rotate(-2deg);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 3rem;
-        }
-
-        .nav-link {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 0.1em;
-            position: relative;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--magenta);
-            transition: width 0.3s;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        /* Magazine Hero Section */
-        .hero {
-            height: 100vh;
-            width: 100%;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            border-bottom: var(--border-thick);
-            padding-top: 60px;
-            z-index: 1;
-        }
-
-        /* Massive Typography */
-        .hero-title-wrap {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100%;
-            text-align: center;
-            z-index: 1;
-            pointer-events: none;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .hero-title {
-            font-family: 'Dela Gothic One', cursive;
-            font-weight: 400;
-            line-height: 0.8;
-            white-space: nowrap;
-            letter-spacing: -0.06em;
-            opacity: 0.9;
-        }
-
-        .title-main {
-            font-size: clamp(12vw, 18vw, 400px);
-            color: var(--magenta);
-            z-index: 2;
-        }
-
-        .title-sub {
-            font-size: clamp(10vw, 15vw, 350px);
-            color: transparent;
-            -webkit-text-stroke: 3px var(--magenta);
-            margin-top: -2vw;
-            z-index: 1;
-        }
-
-        /* Editorial Details */
-        .hero-meta {
-            position: absolute;
-            z-index: 3;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        .meta-tl {
-            top: 140px;
-            left: 2rem;
-        }
-
-        .meta-tr {
-            top: 140px;
-            right: 2rem;
-            text-align: right;
-        }
-
-        .meta-bl {
-            bottom: 2rem;
-            left: 2rem;
-        }
-
-        .meta-br {
-            bottom: 2rem;
-            right: 2rem;
-            text-align: right;
-        }
-
-        .meta-line {
-            display: block;
-            width: 40px;
-            height: 2px;
-            background: var(--charcoal);
-            margin-bottom: 0.5rem;
-        }
-
-        .meta-tr .meta-line {
-            margin-left: auto;
-        }
-
-        /* Floating Badge - Starburst */
-        .hero-badge {
-            position: absolute;
-            top: 50%;
-            right: 10%;
-            transform: translateY(-50%) rotate(10deg);
-            z-index: 4;
-            background: var(--magenta);
-            color: var(--white);
-            padding: 3rem 2rem;
-            text-align: center;
-            animation: floatBadge 4s ease-in-out infinite;
-
-            /* Starburst Shape */
-            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%,
-                    50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-            width: 200px;
-            height: 200px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            border: none;
-            box-shadow: none;
-        }
-
-        .hero-badge h3 {
-            font-family: 'Dela Gothic One', cursive;
-            font-size: 1.2rem;
-            margin: 0;
-            line-height: 1;
-            color: var(--white);
-        }
-
-        .hero-badge span {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            font-weight: 600;
-            color: var(--white);
-            margin-top: 0.5rem;
-        }
-
-        @keyframes floatBadge {
-
-            0%,
-            100% {
-                transform: translateY(-50%) rotate(10deg);
-            }
-
-            50% {
-                transform: translateY(-60%) rotate(12deg);
-            }
-        }
-
-        /* Section Styles */
-        section:not(.hero) {
-            padding: 8rem 0;
-            position: relative;
-            z-index: 2;
-        }
-
-        .section-title {
-            font-size: clamp(3rem, 6vw, 5rem);
-            margin-bottom: 5rem;
-            text-align: center;
-            line-height: 0.9;
-        }
-
-        .section-title span {
-            color: var(--magenta);
-            font-family: 'Space Grotesk', sans-serif;
-        }
-
-        /* Intro Section - Hi! Eu sou a Vitórya */
-        .intro-section {
-            background: var(--charcoal);
-            color: var(--white);
-        }
-
-        .intro-section .section-title {
-            color: var(--white);
-            text-align: left;
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            margin-bottom: 3rem;
-        }
-
-        .intro-text {
-            font-size: 1.4rem;
-            line-height: 1.8;
-            max-width: 1000px;
-        }
-
-        .intro-text strong {
-            color: var(--magenta);
-            font-weight: 700;
-        }
-
-        /* Collage Grid */
-        .collage-grid {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 2rem;
-        }
-
-        .collage-item {
-            background: var(--white);
-            border: var(--border-thick);
-            padding: 3rem;
-            position: relative;
-            transition: transform 0.3s;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .collage-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 12px 12px 0 var(--magenta);
-            z-index: 10;
-        }
-
-        .col-4 {
-            grid-column: span 4;
-        }
-
-        .col-6 {
-            grid-column: span 6;
-        }
-
-        .col-8 {
-            grid-column: span 8;
-        }
-
-        .col-12 {
-            grid-column: span 12;
-        }
-
-        .collage-item h3 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--magenta);
-        }
-
-        .collage-item p {
-            font-size: 1.1rem;
-            color: var(--charcoal);
-        }
-
-        .collage-item ul {
-            margin-top: 1.5rem;
-            padding-left: 1rem;
-        }
-
-        .collage-item li {
-            list-style-type: square;
-            margin-bottom: 0.5rem;
-            color: var(--charcoal);
-            font-weight: 500;
-        }
-
-        /* Beyond Tech Section - Porque eu sou muito mais */
-        .beyond-section {
-            background: var(--cream);
-            color: var(--charcoal);
-        }
-
-        .beyond-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .beyond-card {
-            background: var(--white);
-            border: var(--border-thick);
-            padding: 2.5rem;
-            transition: all 0.3s;
-            text-align: center;
-        }
-
-        .beyond-card:hover {
-            background: var(--magenta);
-            border-color: var(--magenta);
-            transform: translateY(-10px);
-            box-shadow: 8px 8px 0 var(--charcoal);
-        }
-
-        .beyond-card i {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            display: block;
-            color: var(--magenta);
-        }
-
-        .beyond-card:hover i {
-            color: var(--white);
-        }
-
-        .beyond-card h3 {
-            font-size: 1.5rem;
-            color: var(--magenta);
-            margin-bottom: 1rem;
-            transition: color 0.3s;
-        }
-
-        .beyond-card:hover h3 {
-            color: var(--white);
-        }
-
-        .beyond-card p {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: var(--charcoal);
-        }
-
-        .beyond-card:hover p {
-            color: var(--white);
-        }
-
-        /* Books Section - Livros que moldaram */
-        .books-section {
-            background: var(--white);
-            border-top: var(--border-thick);
-            border-bottom: var(--border-thick);
-        }
-
-        .books-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .book-card {
-            background: var(--white);
-            color: var(--charcoal);
-            padding: 2rem;
-            border: var(--border-thick);
-            transition: all 0.3s;
-        }
-
-        .book-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 8px 8px 0 var(--magenta);
-        }
-
-        .book-card i {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            display: block;
-            color: var(--magenta);
-        }
-
-        .book-card h3 {
-            font-size: 1.2rem;
-            color: var(--magenta);
-            margin-bottom: 0.5rem;
-        }
-
-        .book-card p {
-            font-size: 0.9rem;
-            color: var(--charcoal);
-            opacity: 0.8;
-        }
-
-        /* Areas Section - Do código ao palco */
-        .areas-detailed {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .area-card {
-            background: var(--white);
-            border: var(--border-thick);
-            padding: 2.5rem;
-            transition: all 0.3s;
-        }
-
-        .area-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 12px 12px 0 var(--magenta);
-        }
-
-        .area-card.featured {
-            border-color: var(--magenta);
-            border-width: 3px;
-        }
-
-        .area-card i {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            display: block;
-            color: var(--magenta);
-        }
-
-        .area-card h3 {
-            font-size: 1.8rem;
-            color: var(--magenta);
-            margin-bottom: 1rem;
-        }
-
-        .area-card p {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            color: var(--charcoal);
-        }
-
-        .area-card ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .area-card li {
-            padding-left: 1.5rem;
-            margin-bottom: 0.5rem;
-            position: relative;
-            color: var(--charcoal);
-        }
-
-        .area-card li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--magenta);
-            font-weight: bold;
-        }
-
-        /* Wrapped Timeline (No Scroll) */
-        .timeline-section {
-            background: var(--charcoal);
-            color: var(--white);
-            padding: 8rem 0;
-        }
-
-        .timeline-wrap {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 3rem;
-            position: relative;
-        }
-
-        .timeline-card {
-            background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 2rem;
-            width: 300px;
-            position: relative;
-            transition: all 0.3s;
-        }
-
-        .timeline-card:hover {
-            background: var(--magenta);
-            border-color: var(--magenta);
-            transform: scale(1.05);
-            color: var(--white);
-        }
-
-        .timeline-card:hover .timeline-year-wrap {
-            color: var(--white);
-        }
-
-        .timeline-card:hover p {
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .timeline-year-wrap {
-            font-family: 'Dela Gothic One', cursive;
-            font-size: 3rem;
-            color: var(--magenta);
-            font-weight: 400;
-            margin-bottom: 0.5rem;
-            line-height: 1;
-            transition: color 0.3s;
-        }
-
-        .timeline-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: var(--white);
-        }
-
-        .timeline-card p {
-            font-size: 0.9rem;
-            color: #aaa;
-            transition: color 0.3s;
-        }
-
-        /* Projects */
-        .project-card {
-            background: var(--white);
-            border: var(--border-thick);
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            transition: transform 0.3s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 8px 8px 0 var(--magenta);
-        }
-
-        .project-img {
-            height: 250px;
-            background: var(--charcoal);
-            position: relative;
-            overflow: hidden;
-            border-bottom: var(--border-thick);
-        }
-
-        .project-img::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="2" fill="%23ffffff" opacity="0.2"/></svg>');
-        }
-
-        .project-content {
-            padding: 2rem;
-            flex-grow: 1;
-        }
-
-        .project-tags {
-            margin-top: 1.5rem;
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .tag {
-            font-size: 0.75rem;
-            padding: 0.3rem 0.6rem;
-            background: var(--charcoal);
-            color: var(--white);
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-
-        /* Contact - Polished */
-        .contact-section {
-            text-align: center;
-            background: transparent;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-bg-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 20vw;
-            font-weight: 800;
-            color: rgba(0, 0, 0, 0.03);
-            white-space: nowrap;
-            pointer-events: none;
-            font-family: 'Dela Gothic One', cursive;
-        }
-
-        .contact-card {
-            background: var(--white);
-            border: var(--border-thick);
-            padding: 4rem;
-            max-width: 900px;
-            margin: 0 auto;
-            box-shadow: 15px 15px 0 var(--magenta);
-            position: relative;
-            z-index: 1;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin: 3rem 0;
-            flex-wrap: wrap;
-        }
-
-        .social-link {
-            font-size: 2rem;
-            color: var(--charcoal);
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 70px;
-            height: 70px;
-            border: 2px solid var(--charcoal);
-            background: var(--white);
-        }
-
-        .social-link:hover {
-            background: var(--magenta);
-            color: var(--white);
-            transform: rotate(10deg);
-            box-shadow: 5px 5px 0 var(--charcoal);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--charcoal);
-            color: var(--white);
-            padding: 3rem 0;
-            text-align: center;
-            border-top: 4px solid var(--magenta);
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Responsive Breakpoints */
-        @media (max-width: 992px) {
-            .title-main {
-                font-size: 18vw;
-            }
-
-            .title-sub {
-                font-size: 15vw;
-            }
-
-            .hero-badge {
-                display: none;
-            }
-
-            .areas-detailed {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .container {
-                padding: 0 1.5rem;
-            }
-
-            .col-4,
-            .col-6,
-            .col-8,
-            .col-12 {
-                grid-column: span 12;
-            }
-
-            .title-main {
-                font-size: 22vw;
-            }
-
-            .title-sub {
-                font-size: 18vw;
-                margin-top: -1vw;
-            }
-
-            .meta-tl,
-            .meta-tr,
-            .meta-bl,
-            .meta-br {
-                font-size: 0.6rem;
-            }
-
-            .contact-card {
-                padding: 2rem 1rem;
-                box-shadow: 8px 8px 0 var(--magenta);
-            }
-
-            .beyond-grid,
-            .books-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .areas-detailed {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Minha Jornada Section */
-        .journey-section {
-            background: var(--charcoal);
-            color: var(--white);
-            padding: 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Block 1: Intro */
-        .journey-intro {
-            padding: 8rem 2rem 4rem;
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: left;
-        }
-
-        .journey-text {
-            font-size: clamp(1.2rem, 2vw, 1.5rem);
-            line-height: 1.8;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .journey-text strong {
-            color: var(--magenta);
-            font-weight: 700;
-        }
-
-        .journey-connector {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.1rem;
-            color: var(--magenta);
-            margin-top: 3rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            opacity: 0.8;
-        }
-
-        .journey-connector::after {
-            content: '';
-            height: 1px;
-            flex-grow: 1;
-            background: linear-gradient(90deg, var(--magenta), transparent);
-        }
-
-        /* Block 2: Cinematic Timeline */
-        .journey-timeline-block {
-            padding: 4rem 2rem;
-            position: relative;
-            background: linear-gradient(180deg, var(--charcoal) 0%, #111 50%, var(--charcoal) 100%);
-        }
-
-        .timeline-cinematic {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .timeline-cinematic::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .timeline-node {
-            position: relative;
-            padding-bottom: 4rem;
-            padding-left: 2rem;
-        }
-
-        .timeline-node::before {
-            content: '';
-            position: absolute;
-            left: -2.6rem;
-            top: 0.5rem;
-            width: 12px;
-            height: 12px;
-            background: var(--charcoal);
-            border: 2px solid var(--magenta);
-            border-radius: 50%;
-            z-index: 2;
-            transition: all 0.3s;
-        }
-
-        .timeline-node:hover::before {
-            background: var(--magenta);
-            box-shadow: 0 0 15px var(--magenta);
-            transform: scale(1.2);
-        }
-
-        .timeline-year {
-            font-family: 'Dela Gothic One', cursive;
-            font-size: 3rem;
-            color: rgba(255, 255, 255, 0.1);
-            position: absolute;
-            left: -5rem;
-            top: -1rem;
-            z-index: 0;
-            pointer-events: none;
-            transition: all 0.3s;
-        }
-
-        .timeline-node:hover .timeline-year {
-            color: rgba(214, 0, 110, 0.2);
-            transform: translateX(10px);
-        }
-
-        .timeline-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .timeline-content h3 {
-            font-size: 1.5rem;
-            color: var(--magenta);
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-content p {
-            font-size: 1rem;
-            color: #ccc;
-        }
-
-        /* Block 3: Closing */
-        .journey-closing {
-            padding: 6rem 2rem;
-            text-align: center;
-            background: var(--charcoal);
-        }
-
-        .closing-text {
-            font-family: 'Dela Gothic One', cursive;
-            font-size: clamp(2rem, 5vw, 4rem);
-            line-height: 1.1;
-            background: linear-gradient(45deg, var(--white), var(--gray-light));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 1rem;
-        }
-
-        .closing-sub {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.2rem;
-            color: var(--magenta);
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-        }
-
-        @media (max-width: 768px) {
-            .timeline-cinematic {
-                padding-left: 1rem;
-            }
-
-            .timeline-year {
-                font-size: 2rem;
-                left: -1rem;
-                top: -2rem;
-            }
-
-            .timeline-node::before {
-                left: -1.4rem;
-            }
-        }
-
-        /* ============================================
-           TIMELINE HORIZONTAL INTERATIVA
-           ============================================ */
-
-        .timeline-horizontal-wrapper {
-            position: relative;
-            padding: 6rem 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        /* Linha Horizontal Principal */
-        .timeline-horizontal-line {
-            position: absolute;
-            top: 50%;
-            left: 8%;
-            right: 8%;
-            height: 3px;
-            background: linear-gradient(90deg,
-                    var(--magenta) 0%,
-                    var(--magenta) 20%,
-                    var(--magenta-dark) 40%,
-                    var(--magenta) 60%,
-                    var(--magenta) 80%,
-                    var(--magenta) 100%);
-            transform: translateY(-50%);
-            z-index: 1;
-            opacity: 0.3;
-        }
-
-        /* Container dos Itens */
-        .timeline-horizontal-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-            padding: 0 8%;
-            gap: 1rem;
-        }
-
-        /* Item Individual */
-        .timeline-horizontal-item {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        /* Dot/Ponto */
-        .timeline-h-dot {
-            width: 20px;
-            height: 20px;
-            background: var(--charcoal);
-            border: 3px solid var(--magenta);
-            border-radius: 50%;
-            position: relative;
-            z-index: 3;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 0 0 rgba(214, 0, 110, 0.7);
-        }
-
-        /* Animação de Pulso */
-        @keyframes timeline-pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(214, 0, 110, 0.7);
-            }
-
-            70% {
-                box-shadow: 0 0 0 15px rgba(214, 0, 110, 0);
-            }
-
-            100% {
-                box-shadow: 0 0 0 0 rgba(214, 0, 110, 0);
-            }
-        }
-
-        .timeline-horizontal-item.active .timeline-h-dot {
-            animation: timeline-pulse 2s infinite;
-        }
-
-        .timeline-horizontal-item:hover .timeline-h-dot {
-            transform: scale(1.4);
-            background: var(--magenta);
-            box-shadow: 0 0 20px rgba(214, 0, 110, 0.8);
-        }
-
-        /* Dot Especial para FUTURO */
-        .timeline-h-dot-future {
-            background: var(--white);
-            border-color: var(--white);
-        }
-
-        .timeline-horizontal-item:hover .timeline-h-dot-future {
-            background: var(--white);
-            border-color: var(--white);
-        }
-
-        /* Ano (Label) */
-        .timeline-h-year {
-            position: absolute;
-            top: -80px;
-            font-family: 'Dela Gothic One', cursive;
-            font-size: clamp(2rem, 3vw, 3.5rem);
-            font-weight: 400;
-            color: var(--magenta);
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.3s ease;
-            text-shadow: 0 0 30px rgba(214, 0, 110, 0.5);
-            pointer-events: none;
-            white-space: nowrap;
-        }
-
-        .timeline-horizontal-item:hover .timeline-h-year,
-        .timeline-horizontal-item.active .timeline-h-year {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Ano Especial para FUTURO */
-        .timeline-h-year-future {
-            color: var(--white);
-        }
-
-        /* Card de Conteúdo */
-        .timeline-h-content {
-            position: absolute;
-            top: 100px;
-            background: rgba(26, 26, 26, 0.98);
-            border: 2px solid var(--magenta);
-            padding: 1.5rem;
-            min-width: 280px;
-            max-width: 320px;
-            opacity: 0;
-            transform: translateY(-20px);
-            pointer-events: none;
-            transition: all 0.4s ease;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 10px 40px rgba(214, 0, 110, 0.3);
-            z-index: 10;
-        }
-
-        .timeline-horizontal-item:hover .timeline-h-content,
-        .timeline-horizontal-item.active .timeline-h-content {
-            opacity: 1;
-            transform: translateY(0);
-            pointer-events: auto;
-        }
-
-        .timeline-h-content h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            color: var(--magenta);
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .timeline-h-content p {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.9rem;
-            line-height: 1.6;
-            font-family: 'Inter', sans-serif;
-        }
-
-        /* Emoji/Ícone */
-        .timeline-h-emoji {
-            position: absolute;
-            bottom: -60px;
-            font-size: 2rem;
-            opacity: 0.5;
-            transition: all 0.3s ease;
-            color: var(--magenta);
-        }
-
-        .timeline-horizontal-item:hover .timeline-h-emoji {
-            opacity: 1;
-            transform: scale(1.3);
-        }
-
-        /* Hint de Interação */
-        .timeline-h-hint {
-            text-align: center;
-            margin-top: 4rem;
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 0.9rem;
-            font-style: italic;
-            font-family: 'Inter', sans-serif;
-        }
-
-        /* ============================================
-           RESPONSIVE - MOBILE
-           ============================================ */
-
-        @media (max-width: 1024px) {
-            .timeline-horizontal-container {
-                padding: 0 4%;
-            }
-
-            .timeline-horizontal-line {
-                left: 4%;
-                right: 4%;
-            }
-
-            .timeline-h-content {
-                min-width: 240px;
-                max-width: 260px;
-                padding: 1.2rem;
-            }
-
-            .timeline-h-year {
-                font-size: 2.5rem;
-                top: -70px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .timeline-horizontal-wrapper {
-                padding: 4rem 1rem;
-            }
-
-            /* Muda para layout vertical em mobile */
-            .timeline-horizontal-container {
-                flex-direction: column;
-                gap: 4rem;
-                padding: 0 2rem;
-            }
-
-            .timeline-horizontal-line {
-                left: 2rem;
-                top: 0;
-                bottom: 0;
-                width: 3px;
-                height: auto;
-                transform: translateX(0);
-                background: linear-gradient(180deg,
-                        var(--magenta) 0%,
-                        var(--magenta-dark) 50%,
-                        var(--magenta) 100%);
-            }
-
-            .timeline-horizontal-item {
-                width: 100%;
-                flex-direction: row;
-                justify-content: flex-start;
-                gap: 2rem;
-                align-items: flex-start;
-            }
-
-            .timeline-h-dot {
-                position: absolute;
-                left: -2rem;
-                top: 0;
-                transform: translateX(-50%);
-            }
-
-            .timeline-h-year {
-                position: relative;
-                top: 0;
-                left: 0;
-                opacity: 1;
-                transform: none;
-                font-size: 2rem;
-                margin-bottom: 0.5rem;
-            }
-
-            .timeline-h-content {
-                position: relative;
-                top: 0;
-                opacity: 1;
-                transform: none;
-                pointer-events: auto;
-                margin-top: 0;
-                margin-left: 1rem;
-                min-width: auto;
-                max-width: none;
-                width: 100%;
-            }
-
-            .timeline-h-emoji {
-                position: relative;
-                bottom: 0;
-                opacity: 0.7;
-                margin-left: auto;
-            }
-
-            .timeline-h-hint {
-                display: none;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .timeline-h-year {
-                font-size: 1.5rem;
-            }
-
-            .timeline-h-content {
-                padding: 1rem;
-            }
-
-            .timeline-h-content h3 {
-                font-size: 1rem;
-            }
-
-            .timeline-h-content p {
-                font-size: 0.85rem;
-            }
-        }
-    </style>
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -1401,8 +87,9 @@
                 </p>
                 <br>
                 <p>
-                    Hoje, aos 20 anos, sou <strong>Desenvolvedora de Software, Designer, Professora, Fundadora da
-                        ByteGirls e Residente de Software no Porto Digital</strong>. Crio soluções que resolvem dores
+                    Hoje, aos 20 anos, sou <strong>Analista de Inovação e Integração Tecnológica, Desenvolvedora de
+                        Software, Designer, Professora e Residente de Software no Porto Digital</strong>. Crio soluções
+                    que resolvem dores
                     reais, compartilho conhecimento para abrir portas e mentes, lidero para mudar narrativas e construo
                     iniciativas para garantir que nenhuma menina precise caminhar sozinha no que um dia foi difícil, e
                     quase impossivel, para mim.
@@ -1416,11 +103,21 @@
             <div class="journey-connector">
                 E essa é a linha do tempo que me trouxe até aqui…
             </div>
+
+            <!-- Seta direcional animada -->
+            <div class="journey-arrow">
+                <i class="ph ph-arrow-down"></i>
+            </div>
         </div>
 
         <!-- Block 2: Timeline Horizontal Interativa -->
         <div class="journey-timeline-block">
             <div class="timeline-horizontal-wrapper">
+                <!-- Hint de Interação - posicionado ACIMA da timeline -->
+                <div class="timeline-h-hint">
+                    Passe o mouse sobre os pontos para explorar
+                </div>
+
                 <!-- Linha Horizontal -->
                 <div class="timeline-horizontal-line"></div>
 
@@ -1482,13 +179,13 @@
                     </div>
 
                     <!-- HOJE -->
-                    <div class="timeline-horizontal-item active" data-year="HOJE">
+                    <div class="timeline-horizontal-item" data-year="HOJE">
                         <div class="timeline-h-dot"></div>
                         <div class="timeline-h-year">HOJE</div>
                         <div class="timeline-h-content">
-                            <h3>Construindo o Futuro</h3>
-                            <p>Focada em expansao internacional, novos negocios e em criar solucoes que impactam o
-                                mundo.</p>
+                            <h3>Inovação & Integração Tech</h3>
+                            <p>Atualmente como Analista de Inovação e Integração Tecnológica, focada em expansão
+                                internacional, novos negócios e em criar soluções que impactam o mundo.</p>
                         </div>
                         <div class="timeline-h-emoji">
                             <i class="ph ph-star"></i>
@@ -1509,11 +206,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Hint de Interação -->
-            <div class="timeline-h-hint">
-                Passe o mouse sobre os pontos para explorar
             </div>
         </div>
 
@@ -1565,34 +257,120 @@
         </div>
     </section>
 
-    <!-- Books Section - Livros que moldaram -->
-    <section class="books-section">
+    <!-- Certificates Section - Licenças e Certificados -->
+    <section id="certificates" class="certificates-section">
         <div class="container">
-            <h2 class="section-title">Livros que <span>moldaram</span> minha trajetória</h2>
+            <h2 class="section-title">Licenças e <span>Certificados</span></h2>
+            <p class="certificates-subtitle">O que tenho estudado</p>
 
-            <div class="books-grid">
-                <div class="book-card">
-                    <i class="ph ph-brain"></i>
-                    <h3>"Mindset" - Carol Dweck</h3>
-                    <p>Mentalidade de crescimento</p>
-                </div>
+            <div class="certificates-wrapper">
+                <!-- Navigation Arrows -->
+                <button class="carousel-nav prev" onclick="scrollCertificates(-1)">
+                    <i class="ph ph-caret-left"></i>
+                </button>
+                <button class="carousel-nav next" onclick="scrollCertificates(1)">
+                    <i class="ph ph-caret-right"></i>
+                </button>
 
-                <div class="book-card">
-                    <i class="ph ph-lightning"></i>
-                    <h3>"Mais Esperto que o Diabo" - Napoleon Hill</h3>
-                    <p>Superando medos e limitações</p>
-                </div>
+                <!-- Carousel -->
+                <div class="certificates-carousel" id="certificatesCarousel">
+                    <!-- Card 1 -->
+                    <div class="certificate-card">
+                        <div class="certificate-img">
+                            <div class="certificate-img-placeholder">
+                                <i class="ph ph-certificate"></i>
+                            </div>
+                            <span class="certificate-badge">CESAR</span>
+                        </div>
+                        <div class="certificate-content">
+                            <h3>[FAST - Aceleração] Bootcamp Frontend</h3>
+                            <p>72 horas</p>
+                        </div>
+                    </div>
 
-                <div class="book-card">
-                    <i class="ph ph-rocket-launch"></i>
-                    <h3>"Sprint" - Jake Knapp</h3>
-                    <p>Inovação e resolução de problemas</p>
-                </div>
+                    <!-- Card 2 -->
+                    <div class="certificate-card">
+                        <div class="certificate-img">
+                            <div class="certificate-img-placeholder">
+                                <i class="ph ph-code"></i>
+                            </div>
+                            <span class="certificate-badge">CESAR</span>
+                        </div>
+                        <div class="certificate-content">
+                            <h3>Web API</h3>
+                            <p>Microcertificado</p>
+                        </div>
+                    </div>
 
-                <div class="book-card">
-                    <i class="ph ph-lightbulb"></i>
-                    <h3>"O Poder do Hábito" - Charles Duhigg</h3>
-                    <p>Transformação através de rotinas</p>
+                    <!-- Card 3 -->
+                    <div class="certificate-card">
+                        <div class="certificate-img">
+                            <div class="certificate-img-placeholder">
+                                <i class="ph ph-test-tube"></i>
+                            </div>
+                            <span class="certificate-badge">CESAR</span>
+                        </div>
+                        <div class="certificate-content">
+                            <h3>REACT e Testes Automatizados</h3>
+                            <p>Microcertificado</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="certificate-card">
+                        <div class="certificate-img">
+                            <div class="certificate-img-placeholder">
+                                <i class="ph ph-file-html"></i>
+                            </div>
+                            <span class="certificate-badge">DIO</span>
+                        </div>
+                        <div class="certificate-content">
+                            <h3>Formação HTML Web Developer</h3>
+                            <p>21 horas</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="certificate-card">
+                        <div class="certificate-img">
+                            <div class="certificate-img-placeholder">
+                                <i class="ph ph-file-js"></i>
+                            </div>
+                            <span class="certificate-badge">DIO</span>
+                        </div>
+                        <div class="certificate-content">
+                            <h3>Formação JavaScript Developer</h3>
+                            <p>38 horas</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="certificate-card">
+                        <div class="certificate-img">
+                            <div class="certificate-img-placeholder">
+                                <i class="ph ph-database"></i>
+                            </div>
+                            <span class="certificate-badge">Alura</span>
+                        </div>
+                        <div class="certificate-content">
+                            <h3>SQL e Banco de Dados</h3>
+                            <p>40 horas</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 7 -->
+                    <div class="certificate-card">
+                        <div class="certificate-img">
+                            <div class="certificate-img-placeholder">
+                                <i class="ph ph-git-branch"></i>
+                            </div>
+                            <span class="certificate-badge">DIO</span>
+                        </div>
+                        <div class="certificate-content">
+                            <h3>Git e GitHub</h3>
+                            <p>Formação Completa</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1777,7 +555,7 @@
         document.addEventListener('DOMContentLoaded', function () {
             const timelineItems = document.querySelectorAll('.timeline-horizontal-item');
 
-            // Adiciona active state ao clicar (útil para mobile)
+            // Click handler para mobile e desktop
             timelineItems.forEach(item => {
                 item.addEventListener('click', function () {
                     // Remove active de todos
@@ -1787,19 +565,36 @@
                 });
             });
 
-            // Auto-ativa o primeiro item após carregar (desktop apenas)
+            // Onboarding visual: ativar 2019 primeiro (desktop apenas)
+            // Isso estabelece a narrativa cronológica desde o início
             if (window.innerWidth > 768) {
-                setTimeout(() => {
-                    const firstItem = document.querySelector('.timeline-horizontal-item');
-                    if (firstItem) {
+                const firstItem = document.querySelector('.timeline-horizontal-item[data-year="2019"]');
+                if (firstItem) {
+                    // Pequeno delay para suavizar a entrada
+                    setTimeout(() => {
                         firstItem.classList.add('active');
-                        setTimeout(() => {
-                            firstItem.classList.remove('active');
-                        }, 2500);
-                    }
-                }, 500);
+                    }, 400);
+
+                    // Remove após 3.5s para convidar exploração
+                    setTimeout(() => {
+                        firstItem.classList.remove('active');
+                    }, 4000);
+                }
             }
         });
+
+        // Certificates Carousel Navigation
+        function scrollCertificates(direction) {
+            const carousel = document.getElementById('certificatesCarousel');
+            const scrollAmount = 300; // Pixels to scroll
+            carousel.scrollBy({
+                left: direction * scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+
+        // Make function available globally
+        window.scrollCertificates = scrollCertificates;
     </script>
 </body>
 
